@@ -160,15 +160,13 @@ export default function AnswerForm() {
     if (!location.state?.fromSelect && !location.state?.fromAllResult) {
       return navigate("/", { replace: true });
     }
-    if (firstRenderRef.current) {
+
       if (location.state?.fromAllResult) {
         viewResponse();
       } else {
         getQuestions();
       }
-    } else {
-      firstRenderRef.current = true;
-    }
+  
   }, [getQuestions, viewResponse]);
 
   const submitAnswers = async () => {
